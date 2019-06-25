@@ -16,7 +16,7 @@ Object.defineProperty(obj, 'name',{
     enumerable: false, //不可枚举
     value: 1000, //值
     writable: false, //是否可以赋值
-    configurable: false, //是否可以被删除
+    configurable: false, //是否可以被删除 是否可以重新配置
 })
 
 var man = {
@@ -60,7 +60,29 @@ Object.defineProperty(foo.prototype,'z',{
     get:function () {
         return '1';
     },
-    configurable: true,
+    configurable: false,
  
 })
 // 如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常。 ---------取自MDN原话。
+
+
+// 属性权限设置
+/* 
+什么是属性标签
+*/
+Object.getOwnPropertyDescriptor(man,'name')  //查看对象属性 对应的描述值
+Object.defineProperty(man,'type',{
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value: 'student'
+})
+Object.defineProperties(man, {
+    title:{
+        value: 'title',
+        enumerable: true
+    },
+    des:{
+        value: 'wqq'
+    }
+})
