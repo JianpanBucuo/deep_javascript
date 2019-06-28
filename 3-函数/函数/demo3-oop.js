@@ -38,3 +38,4 @@ function Student(name, age, cla) {
     this.cla = cla;
 }
 Student.prototype = Object.create(Person.prototype);
+Object.getPrototypeOf()
